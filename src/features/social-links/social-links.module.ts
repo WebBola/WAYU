@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { SocialLinkController } from './social-link/social-link.controller';
+import { PublicSocialLinkController } from './social-link/public-social-link.controller';
 import { CreateSocialLinkHandler } from './social-link/commands/create-social-link/create-social-link.handler';
 import { UpdateSocialLinkHandler } from './social-link/commands/update-social-link/update-social-link.handler';
 import { DeleteSocialLinkHandler } from './social-link/commands/delete-social-link/delete-social-link.handler';
@@ -9,7 +10,7 @@ import { GetOneSocialLinkHandler } from './social-link/queries/get-one-social-li
 
 @Module({
   imports: [CqrsModule],
-  controllers: [SocialLinkController],
+  controllers: [SocialLinkController, PublicSocialLinkController],
   providers: [
     CreateSocialLinkHandler,
     UpdateSocialLinkHandler,

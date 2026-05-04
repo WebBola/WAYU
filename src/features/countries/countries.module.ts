@@ -6,10 +6,11 @@ import { DeleteCountryHandler } from './country/commands/delete-country/delete-c
 import { GetAllCountryHandler } from './country/queries/get-all-country/get-all-country.handler';
 import { GetOneCountryHandler } from './country/queries/get-one-country/get-one-country.handler';
 import { CountryController } from './country/country.controller';
+import { PublicCountryController } from './country/public-country.controller';
 
 @Module({
   imports: [CqrsModule],
-  controllers: [CountryController],
+  controllers: [CountryController, PublicCountryController],
   providers: [CreateCountryHandler, UpdateCountryHandler, DeleteCountryHandler, GetAllCountryHandler, GetOneCountryHandler],
 })
 export class CountriesModule { }

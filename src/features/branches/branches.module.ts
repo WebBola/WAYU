@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { BranchController } from './branch/branch.controller';
+import { PublicBranchController } from './branch/public-branch.controller';
 import { CreateBranchHandler } from './branch/commands/create-branch/create-branch.handler';
 import { UpdateBranchHandler } from './branch/commands/update-branch/update-branch.handler';
 import { DeleteBranchHandler } from './branch/commands/delete-branch/delete-branch.handler';
@@ -8,6 +9,7 @@ import { GetAllBranchesHandler } from './branch/queries/get-all-branches/get-all
 import { GetOneBranchHandler } from './branch/queries/get-one-branch/get-one-branch.handler';
 import { CountryController } from './country/country.controller';
 import { RepresentativeController } from './representative/representative.controller';
+import { PublicRepresentativeController } from './representative/public-representative.controller';
 import { CreateCountryHandler } from './country/commands/create-country/create-country.handler';
 import { UpdateCountryHandler } from './country/commands/update-country/update-country.handler';
 import { DeleteCountryHandler } from './country/commands/delete-country/delete-country.handler';
@@ -21,7 +23,7 @@ import { GetOneRepresentativeHandler } from './representative/queries/get-one-re
 
 @Module({
   imports: [CqrsModule],
-  controllers: [BranchController, CountryController, RepresentativeController],
+  controllers: [BranchController, PublicBranchController, CountryController, RepresentativeController, PublicRepresentativeController],
   providers: [
     CreateBranchHandler,
     UpdateBranchHandler,

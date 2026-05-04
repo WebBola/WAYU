@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { QuestionController } from './question/question.controller';
+import { PublicQuestionController } from './question/public-question.controller';
 import { CreateQuestionHandler } from './question/commands/create-question/create-question.handler';
 import { UpdateQuestionHandler } from './question/commands/update-question/update-question.handler';
 import { DeleteQuestionHandler } from './question/commands/delete-question/delete-question.handler';
@@ -9,7 +10,7 @@ import { GetOneQuestionHandler } from './question/queries/get-one-question/get-o
 
 @Module({
   imports: [CqrsModule],
-  controllers: [QuestionController],
+  controllers: [QuestionController, PublicQuestionController],
   providers: [
     CreateQuestionHandler,
     UpdateQuestionHandler,

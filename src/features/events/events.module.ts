@@ -1,12 +1,14 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { EventController } from './event/event.controller';
+import { PublicEventController } from './event/public-event.controller';
 import { CreateEventHandler } from './event/commands/create-event/create-event.handler';
 import { UpdateEventHandler } from './event/commands/update-event/update-event.handler';
 import { DeleteEventHandler } from './event/commands/delete-event/delete-event.handler';
 import { GetAllEventsHandler } from './event/queries/get-all-events/get-all-events.handler';
 import { GetOneEventHandler } from './event/queries/get-one-event/get-one-event.handler';
 import { EventCategoryController } from './event-category/event-category.controller';
+import { PublicEventCategoryController } from './event-category/public-event-category.controller';
 import { CreateEventCategoryHandler } from './event-category/commands/create-event-category/create-event-category.handler';
 import { UpdateEventCategoryHandler } from './event-category/commands/update-event-category/update-event-category.handler';
 import { DeleteEventCategoryHandler } from './event-category/commands/delete-event-category/delete-event-category.handler';
@@ -15,7 +17,7 @@ import { GetOneEventCategoryHandler } from './event-category/queries/get-one-eve
 
 @Module({
   imports: [CqrsModule],
-  controllers: [EventController, EventCategoryController],
+  controllers: [EventController, PublicEventController, EventCategoryController, PublicEventCategoryController],
   providers: [
     CreateEventHandler,
     UpdateEventHandler,

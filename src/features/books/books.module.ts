@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { BookController } from './book/book.controller';
+import { PublicBookController } from './book/public-book.controller';
 import { CreateBookHandler } from './book/commands/create-book/create-book.handler';
 import { UpdateBookHandler } from './book/commands/update-book/update-book.handler';
 import { DeleteBookHandler } from './book/commands/delete-book/delete-book.handler';
@@ -21,7 +22,7 @@ import { GetOneBookCategoryHandler } from './book-category/queries/get-one-book-
 
 @Module({
   imports: [CqrsModule],
-  controllers: [BookController, AuthorController, BookCategoryController],
+  controllers: [BookController, PublicBookController, AuthorController, BookCategoryController],
   providers: [
     CreateBookHandler,
     UpdateBookHandler,
