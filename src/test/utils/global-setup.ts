@@ -4,7 +4,7 @@ import { DataSource } from 'typeorm';
 export default async function globalSetup() {
   const db = new DataSource({
     type: "postgres",
-    url: process.env.DEFAULT_DATABASE_URL,
+    url: process.env.DB_URL,
   })
   
   await db.initialize();

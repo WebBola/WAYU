@@ -17,7 +17,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:e2e": "jest --config ./jest-e2e.json",
     "generate": "npx ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:generate ./src/migrations/wayu -d data-source.ts",
     "migrate": "npx ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d data-source.ts",
     "revert": "npx ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert -d data-source.ts"
@@ -29,6 +29,7 @@
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/swagger": "^11.4.1",
     "@nestjs/typeorm": "^11.0.1",
+    "argon2": "^0.44.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
     "multer": "^2.1.1",

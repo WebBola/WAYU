@@ -1,0 +1,17 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": "src/.*\\.e2e-spec\\.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": ["ts-jest", {
+      "tsconfig": "tsconfig.json"
+    }]
+  },
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^src/(.*)$": "<rootDir>/src/$1"
+  },
+  "globalSetup": "<rootDir>/src/test/utils/global-setup.ts",
+  "modulePathIgnorePatterns": ["<rootDir>/dist/"]
+}

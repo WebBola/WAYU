@@ -7,7 +7,7 @@ const TestDataSourceOptions: DataSourceOptions = {
   url: process.env.TEST_DB_URL,
   entities: ['./src/**/*.entity.ts'],
   synchronize: true,
-  dropSchema: false,
+  dropSchema: true,
   logging: false,
 };
 
