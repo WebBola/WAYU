@@ -2,6 +2,7 @@ import {Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query} 
 import {CommandBus, QueryBus} from "@nestjs/cqrs";
 import {CreateBranchRequest} from "./commands/create-branch/create-branch.request";
 import {CreateBranchCommand} from "./commands/create-branch/create-branch.command";
+import {CreateBranchResponse} from "./commands/create-branch/create-branch.response";
 import {ApiOkResponse, ApiTags} from "@nestjs/swagger";
 import { GetAllBranchesResponse } from "./queries/get-all-branches/get-all-branches.response";
 import { GetAllBranchesFilters } from "./queries/get-all-branches/get-all-branches.filters";
@@ -23,7 +24,7 @@ export class BranchController {
   }
 
   @Post()
-  @ApiOkResponse({ type: CreateBranchCommand })
+  @ApiOkResponse({ type: CreateBranchResponse })
   async createBranch(@Body() payload: CreateBranchRequest) {
     const cmd = new CreateBranchCommand(
       payload.countryId, 

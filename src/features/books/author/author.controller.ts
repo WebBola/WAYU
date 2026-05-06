@@ -36,7 +36,7 @@ export class AuthorController {
   }
 
   @Post()
-  @ApiCreatedResponse({type: CreateAuthorResponse})
+  @ApiOkResponse({type: CreateAuthorResponse})
   async createAuthor(@Body() payload: CreateAuthorRequest) {
     const command = new CreateAuthorCommand(payload.fullName)
     return await this.commandBus.execute(command);

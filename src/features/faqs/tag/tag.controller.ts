@@ -36,8 +36,9 @@ export class TagController {
   }
 
   @Post()
-  @ApiCreatedResponse({type: CreateTagResponse})
-  async createTag(@Body() command: CreateTagCommand) {
+  @ApiOkResponse({type: CreateTagResponse})
+  async createTag(@Body() payload: CreateTagRequest) {
+    const command = new CreateTagCommand(payload.title);
     return await this.commandBus.execute(command);
   }
 

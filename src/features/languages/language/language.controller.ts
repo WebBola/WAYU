@@ -36,7 +36,7 @@ export class LanguageController {
   }
 
   @Post()
-  @ApiCreatedResponse({ type: CreateLanguageResponse })
+  @ApiOkResponse({ type: CreateLanguageResponse })
   async createLanguage(@Body() payload: CreateLanguageRequest) {
     const command = new CreateLanguageCommand(payload.title);
     return await this.commandBus.execute(command);

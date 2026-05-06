@@ -36,7 +36,7 @@ export class NewsCategoryController {
   }
 
   @Post()
-  @ApiCreatedResponse({type: CreateNewsCategoryResponse})
+  @ApiOkResponse({type: CreateNewsCategoryResponse})
   async createNewsCategory(@Body() command: CreateNewsCategoryCommand) {
     return await this.commandBus.execute(command);
   }

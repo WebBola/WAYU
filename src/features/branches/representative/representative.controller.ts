@@ -36,8 +36,9 @@ export class RepresentativeController {
   }
 
   @Post()
-  @ApiCreatedResponse({type: CreateRepresentativeResponse})
-  async createRepresentative(@Body() command: CreateRepresentativeCommand) {
+  @ApiOkResponse({type: CreateRepresentativeResponse})
+  async createRepresentative(@Body() payload: CreateRepresentativeRequest) {
+    const command = new CreateRepresentativeCommand(payload.fullName, payload.image, payload.email, payload.phoneNumber, payload.resume)
     return await this.commandBus.execute(command);
   }
 

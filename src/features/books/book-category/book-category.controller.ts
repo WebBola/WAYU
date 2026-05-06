@@ -36,7 +36,7 @@ export class BookCategoryController {
   }
 
   @Post()
-  @ApiCreatedResponse({type: CreateBookCategoryResponse})
+  @ApiOkResponse({type: CreateBookCategoryResponse})
   async createBookCategory(@Body() payload: CreateBookCategoryRequest) {
     const command = new CreateBookCategoryCommand(payload.name)
     return await this.commandBus.execute(command);

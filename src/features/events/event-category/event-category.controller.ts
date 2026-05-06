@@ -36,8 +36,9 @@ export class EventCategoryController {
   }
 
   @Post()
-  @ApiCreatedResponse({type: CreateEventCategoryResponse})
-  async createEventCategory(@Body() command: CreateEventCategoryCommand) {
+  @ApiOkResponse({type: CreateEventCategoryResponse})
+  async createEventCategory(@Body() payload: CreateEventCategoryRequest) {
+    const command = new CreateEventCategoryCommand(payload.title);
     return await this.commandBus.execute(command);
   }
 

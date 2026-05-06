@@ -36,8 +36,9 @@ export class CountryController {
   }
 
   @Post()
-  @ApiCreatedResponse({type: CreateCountryResponse})
-  async createCountry(@Body() command: CreateCountryCommand) {
+  @ApiOkResponse({type: CreateCountryResponse})
+  async createCountry(@Body() payload: CreateCountryRequest) {
+    const command = new CreateCountryCommand(payload.name)
     return await this.commandBus.execute(command);
   }
 

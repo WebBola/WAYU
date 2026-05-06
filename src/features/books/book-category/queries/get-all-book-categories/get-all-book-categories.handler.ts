@@ -16,7 +16,9 @@ export class GetAllBookCategoriesHandler implements IQueryHandler<GetAllBookCate
     const bookCategories = await BookCategory.find({
       where,
       order: {createdAt: 'DESC'}
-    });
+    }); 
+
+    
 
     return plainToInstance(GetAllBookCategoriesResponse, bookCategories, {excludeExtraneousValues: true});
   }

@@ -2,6 +2,7 @@ import {Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query} 
 import {CommandBus, QueryBus} from "@nestjs/cqrs";
 import {CreateFaqRequest} from "./commands/create-faq/create-faq.request";
 import {CreateFaqCommand} from "./commands/create-faq/create-faq.command";
+import {CreateFaqResponse} from "./commands/create-faq/create-faq.response";
 import {ApiOkResponse, ApiTags} from "@nestjs/swagger";
 import { GetAllFaqsResponse } from "./queries/get-all-faqs/get-all-faqs.response";
 import { GetAllFaqsFilters } from "./queries/get-all-faqs/get-all-faqs.filters";
@@ -23,7 +24,7 @@ export class FaqController {
   }
 
   @Post()
-  @ApiOkResponse({ type: CreateFaqCommand })
+  @ApiOkResponse({ type: CreateFaqResponse })
   async createFaq(@Body() payload: CreateFaqRequest) {
     const cmd = new CreateFaqCommand(payload.question, payload.answer, payload.tagIds);
     return await this.commandBus.execute(cmd);

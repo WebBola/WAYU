@@ -36,8 +36,9 @@ export class ApplicationController {
   }
 
   @Post()
-  @ApiCreatedResponse({type: CreateApplicationResponse})
-  async createApplication(@Body() command: CreateApplicationCommand) {
+  @ApiOkResponse({type: CreateApplicationResponse})
+  async createApplication(@Body() payload: CreateApplicationRequest) {
+    const command = new CreateApplicationCommand(payload.fullName, payload.phoneNumber, payload.email, payload.vacancyId, payload.resume, payload.status);
     return await this.commandBus.execute(command);
   }
 
